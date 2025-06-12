@@ -75,19 +75,6 @@ python emailer.py
 
 Make sure `.env` and `employees.csv` are correctly filled before testing.
 
----
-
-##  Future Enhancements
-
-- Replace TextBlob with OpenAI/Gemini for smarter insights
-- Add visual performance dashboards
-- Support for attachments and formatted HTML emails
-
----
-
-##  Security Note
-
-Do not commit `.env` to GitHub. It is excluded via `.gitignore`.
 
 ---
 
