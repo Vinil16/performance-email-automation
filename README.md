@@ -56,7 +56,7 @@ This project automatically sends personalized performance summary emails to team
     Example format:
     ```csv
     Name,Manager,Performance,Projects,LastFeedbackText,ManagerEmail
-    Karthik Bulusu,vinil,Good,4,"Kartgik shows good teamwork and often helps peers during crunch time.",vinilarava2004@gmail.com
+    Karthik Bulusu,vinil,Good,4,"Karthik shows good teamwork and often helps peers during crunch time.",vinilarava2004@gmail.com
     ```
 
 4. **Run the Script**
