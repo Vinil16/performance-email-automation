@@ -82,7 +82,7 @@ Make sure `.env` and `employees.csv` are correctly filled before testing.
 
 ```
 SUCCESS: Karthik Bulusu to vinilarava2004@gmail.com
-SUCCESS: Abhinav yerra to vinilarava2004@gmail.com
+SUCCESS: Suman Das to vinil_arava@srmap.edu.in
 ```
 
 
