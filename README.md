@@ -68,8 +68,6 @@ This project automatically sends personalized performance summary emails to team
 
 ##  How to Test
 
-If you're a reviewer or company member testing functionality:
-
 ```bash
 cd performance-email-automation
 python emailer.py
