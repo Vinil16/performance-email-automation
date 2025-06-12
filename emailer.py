@@ -6,8 +6,11 @@ import time
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
+# Base directory (path where this script is located)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Load environment variables from .env file in same directory
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 sender_email = os.getenv("EMAIL")
 password = os.getenv("PASSWORD")
 
@@ -16,8 +19,9 @@ def analyze_sentiment(text):
     blob = TextBlob(text)
     return "Positive" if blob.sentiment.polarity > 0.1 else "Negative" if blob.sentiment.polarity < -0.1 else "Neutral"
 
-# Load CSV and add Sentiment column
-df = pd.read_csv("employees.csv")
+# Load CSV using absolute path and add Sentiment column
+csv_path = os.path.join(BASE_DIR, "employees.csv")
+df = pd.read_csv(csv_path)
 df["Sentiment"] = df["LastFeedbackText"].apply(analyze_sentiment)
 
 # Email Body Generator
@@ -52,13 +56,13 @@ for _, row in df.iterrows():
     msg = EmailMessage()
     msg["Subject"] = f"Performance Summary for {row['Name']} ({int(time.time())})"
     msg["From"] = sender_email
-    msg["To"] = row["ManagerEmail"].lower()
+    msg["To"] = row["ManagerEmail"].strip().lower()
     msg.set_content(create_email_body(row))
 
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
             smtp.login(sender_email, password)
             smtp.send_message(msg)
-            print(f"SUCCESS: {row['Name']} to {row['ManagerEmail']}")
+            print(f"✅ SUCCESS: {row['Name']} to {row['ManagerEmail']}")
     except Exception as e:
-        print(f"FAILED: {row['Name']} to {row['ManagerEmail']} - {e}")
+        print(f"❌ FAILED: {row['Name']} to {row['ManagerEmail']} - {e}")
