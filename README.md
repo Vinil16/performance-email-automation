@@ -19,7 +19,7 @@ This project automatically sends personalized performance summary emails to team
 ```
 ├── emailer.py            # Main script to run
 ├── employees.csv         # Input CSV with employee data
-├── .env                  # Secure file to store email credentials
+├── gitignore             # Specifies files to ignore (e.g., .env)
 └── README.md             # Project documentation
 ```
 
