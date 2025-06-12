@@ -1,31 +1,107 @@
-#  Performance email automation
 
-##  Overview
-This Python-based tool automates the generation and sending of personalized performance insight emails to managers. It leverages AI (TextBlob) for sentiment analysis of manager feedback and formats summaries into human-friendly emails.
+#  Performance Email Automation
+
+This project automatically sends personalized performance summary emails to team managers based on employee feedback and sentiment analysis.
 
 ---
 
 ##  Features
--  **AI Sentiment Analysis**: Automatically classifies feedback as Positive, Neutral, or Negative.
--  **Email Automation**: Sends personalized, professional summaries directly to each manager.
--  **Performance Insights**: Generates context-aware summaries based on feedback and project data.
+
+-  AI-driven sentiment analysis using TextBlob
+-  Smart summary generation based on feedback
+-  Sends auto-generated emails to respective managers
+-  Uses `.env` for securing email credentials
 
 ---
 
 ## Project Structure
-| File | Description |
-|------|-------------|
-| `employees.csv` | Input data containing employee details and feedback |
-| `emailer.py` | Main script for analysis and email distribution |
-| `.env` | (Not tracked) Stores email credentials securely |
-| `.gitignore` | Ensures `.env` and other sensitive files are ignored |
-| `README.md` | Documentation (this file) |
+
+```
+├── emailer.py            # Main script to run
+├── employees.csv         # Input CSV with employee data
+├── .env                  # Secure file to store email credentials
+└── README.md             # Project documentation
+```
 
 ---
 
-##  Setup & Usage
+##  Requirements
 
-### 1. Clone the Repository
+- Python 3.x
+- Required Libraries:
+    ```bash
+    pip install pandas textblob python-dotenv
+    python -m textblob.download_corpora
+    ```
+
+---
+
+##  Setup Instructions
+
+1. **Clone the Repository**
+    ```bash
+    git clone https://github.com/Vinil16/performance-email-automation.git
+    cd performance-email-automation
+    ```
+
+2. **Create a `.env` File in the Same Directory**
+
+    ```env
+    EMAIL=youremail@gmail.com
+    PASSWORD=your-app-password
+    ```
+    > Use an [App Password](https://support.google.com/accounts/answer/185833?hl=en) for Gmail if 2FA is enabled.
+
+3. **Add Employee Data in `employees.csv`**
+    Example format:
+    ```csv
+    Name,Manager,Performance,Projects,LastFeedbackText,ManagerEmail
+    Karthik Bulusu,vinil,Good,4,"Kartgik shows good teamwork and often helps peers during crunch time.",vinilarava2004@gmail.com
+    ```
+
+4. **Run the Script**
+    ```bash
+    python emailer.py
+    ```
+
+---
+
+##  How to Test
+
+If you're a reviewer or company member testing functionality:
+
 ```bash
-git clone https://github.com/Vinil16/performance-email-automation.git
 cd performance-email-automation
+python emailer.py
+```
+
+Make sure `.env` and `employees.csv` are correctly filled before testing.
+
+---
+
+##  Future Enhancements
+
+- Replace TextBlob with OpenAI/Gemini for smarter insights
+- Add visual performance dashboards
+- Support for attachments and formatted HTML emails
+
+---
+
+##  Security Note
+
+Do not commit `.env` to GitHub. It is excluded via `.gitignore`.
+
+---
+
+##  Sample Output
+
+```
+SUCCESS: Karthik Bulusu to vinilarava2004@gmail.com
+SUCCESS: Abhinav yerra to vinilarava2004@gmail.com
+```
+
+---
+
+##  Author
+
+Vinil Arava – [GitHub](https://github.com/Vinil16)
