@@ -62,8 +62,8 @@ for _, row in df.iterrows():
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
             smtp.login(sender_email, password)
             smtp.send_message(msg)
-            print(f"✅ SUCCESS: {row['Name']} to {row['ManagerEmail']}")
+            print(f"SUCCESS: {row['Name']} to {row['ManagerEmail']}")
             
     except Exception as e:
-        print(f"❌ FAILED: {row['Name']} to {row['ManagerEmail']} - {e}")
+        print(f" FAILED: {row['Name']} to {row['ManagerEmail']} - {e}")
 print("\n Email sending process completed. Please check your inbox to verify the format of the emails.")
