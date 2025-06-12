@@ -40,13 +40,12 @@ I hope you're doing well. Based on the performance data for this month, here’s
 Performance Overview  
 {summary}
 
-Your Last Feedback  
+ Feedback  
 "{row['LastFeedbackText']}"
 
-Projects Completed: {row['Projects']}
+ Number of Projects Completed: {row['Projects']}
 
-Please feel free to add any additional feedback or appreciation as needed. Consistent support and timely recognition go a long way in team growth.
-
+Please feel free to add any additional feedback or appreciation as needed. 
 Best regards,  
 Analytics Bot
 """
@@ -64,5 +63,7 @@ for _, row in df.iterrows():
             smtp.login(sender_email, password)
             smtp.send_message(msg)
             print(f"✅ SUCCESS: {row['Name']} to {row['ManagerEmail']}")
+            
     except Exception as e:
         print(f"❌ FAILED: {row['Name']} to {row['ManagerEmail']} - {e}")
+print("\n Email sending process completed. Please check your inbox to verify the format of the emails.")
