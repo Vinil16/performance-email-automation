@@ -85,8 +85,4 @@ SUCCESS: Karthik Bulusu to vinilarava2004@gmail.com
 SUCCESS: Abhinav yerra to vinilarava2004@gmail.com
 ```
 
----
 
-##  Author
-
-Vinil Arava – [GitHub](https://github.com/Vinil16)
