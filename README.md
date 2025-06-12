@@ -1,26 +1,31 @@
-# AI-Powered People Insight Emailer
+#  Performance email automation
 
-## 📌 Overview
-This Python script reads employee performance data and manager feedback, analyzes the sentiment using AI (TextBlob), and sends templated emails to managers with personalized insights.
+##  Overview
+This Python-based tool automates the generation and sending of personalized performance insight emails to managers. It leverages AI (TextBlob) for sentiment analysis of manager feedback and formats summaries into human-friendly emails.
 
-## 🔍 Features
-- AI-based sentiment analysis (Positive/Neutral/Negative)
-- Dynamic performance summaries
-- Automated email distribution using templated content
+---
 
-## 📁 Files
-- `employees.csv`: Input data file
-- `emailer.py`: Main script
-- `README.md`: This file
+##  Features
+-  **AI Sentiment Analysis**: Automatically classifies feedback as Positive, Neutral, or Negative.
+-  **Email Automation**: Sends personalized, professional summaries directly to each manager.
+-  **Performance Insights**: Generates context-aware summaries based on feedback and project data.
 
-## ✅ How to Run
-1. Install dependencies:
-   pip install pandas textblob
-   python -m textblob.download_corpora
+---
 
-2. Run the script:
-   python emailer.py
+## Project Structure
+| File | Description |
+|------|-------------|
+| `employees.csv` | Input data containing employee details and feedback |
+| `emailer.py` | Main script for analysis and email distribution |
+| `.env` | (Not tracked) Stores email credentials securely |
+| `.gitignore` | Ensures `.env` and other sensitive files are ignored |
+| `README.md` | Documentation (this file) |
 
-## 🚀 Future Enhancements
-- Use OpenAI/Gemini to generate smarter summaries
-- Add dashboard view of team performance trends
+---
+
+##  Setup & Usage
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Vinil16/performance-email-automation.git
+cd performance-email-automation
